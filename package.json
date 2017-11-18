@@ -19,7 +19,10 @@
     "start": "webpack-dev-server"
   },
   "dependencies": {
+    "babel-plugin-emotion": "^8.0.10",
+    "emotion": "^8.0.10",
     "react": "^16.1.1",
-    "react-dom": "^16.1.1"
+    "react-dom": "^16.1.1",
+    "react-emotion": "^8.0.10"
   }
 }

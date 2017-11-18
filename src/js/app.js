@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
+import {css} from 'react-emotion';
+
+const style = css`
+    color: red;
+`;
 
 class App extends Component {
     constructor(props) {
@@ -8,7 +13,7 @@ class App extends Component {
 
     render() {
         return (
-            <div>Wassup</div>
+            <div className={style}>Wassup</div>
         );
     }
 }
