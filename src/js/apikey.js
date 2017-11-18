@@ -1,3 +1,3 @@
-const appId = 'NEED TO PUT YOUR DARK SKY API KEY HERE';
+const apiKey = '18a076ac44c0bd845fd54792b8233541';
 
-export default appId;
+export default apiKey;
