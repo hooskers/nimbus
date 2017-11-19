@@ -35,17 +35,6 @@ module.exports = {
                     'babel-loader',
                 ],
             },
-            // {
-            //     test: /favicons\/.\.(png|ico|gif|xml|json)$/,
-            //     use: [
-            //         {
-            //             loader: 'file-loader',
-            //             options: {
-            //                 name: '[name].[ext]',
-            //             },
-            //         }
-            //     ]
-            // },
         ],
     },
     resolve: {
