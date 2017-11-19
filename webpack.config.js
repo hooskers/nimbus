@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 const htmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -6,21 +7,24 @@ const paths = {
     DIST: path.resolve(__dirname, 'dist'),
     SRC: path.resolve(__dirname, 'src'),
     JS: path.resolve(__dirname, 'src/js'),
+    ASSETS: path.resolve(__dirname, 'src/assets'),
 }
 
 module.exports = {
     entry: path.join(paths.JS, 'app.js'),
     output: {
         path: paths.DIST,
-        filename: 'app.bundle.js',
+        filename: 'nimbus.bundle.js',
     },
     devServer: {
-        contentBase: paths.SRC,
+        contentBase: paths.DIST,
+        port: 9000,
     },
     plugins: [
         new htmlWebpackPlugin({
             template: path.join(paths.SRC, 'index.html'),
         }),
+        new webpack.HotModuleReplacementPlugin({}),
     ],
     module: {
         rules: [
@@ -31,6 +35,17 @@ module.exports = {
                     'babel-loader',
                 ],
             },
+            // {
+            //     test: /favicons\/.\.(png|ico|gif|xml|json)$/,
+            //     use: [
+            //         {
+            //             loader: 'file-loader',
+            //             options: {
+            //                 name: '[name].[ext]',
+            //             },
+            //         }
+            //     ]
+            // },
         ],
     },
     resolve: {
