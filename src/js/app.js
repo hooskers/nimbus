@@ -1,11 +1,20 @@
+import favicons from '../assets/favicons/favicons';
+import fonts from '../assets/fonts/fonts';
+
 import React, {Component} from 'react';
 import {render} from 'react-dom';
-import {css} from 'react-emotion';
+import {css, fontFace} from 'react-emotion';
+
 import apiKey from './apiKey';
-import favicons from './favicons/favicons';
+
+fontFace`
+    font-family: 'Weather Icons';
+    src: url(/fonts/WeatherIcons.woff);
+`;
 
 const style = css`
     color: red;
+    font-family: "Weather Icons";
 `;
 
 class App extends Component {
