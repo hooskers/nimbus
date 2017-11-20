@@ -1,3 +1,3 @@
-const apiKey = '18a076ac44c0bd845fd54792b8233541';
+const apiKey = '<ADD DARKSKY API HERE https://darksky.net/account>';
 
 export default apiKey;

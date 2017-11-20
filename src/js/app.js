@@ -13,8 +13,28 @@ fontFace`
 `;
 
 const style = css`
-    color: red;
+    color: black;
+    font-family: "Arial";
+    font-size: 5em;
+`;
+
+const weatherIcons = {
+    'clear-day':           'J',
+    'clear-night':         'D',
+    'rain':                'G',
+    'snow':                'H',
+    'sleet':               'B',
+    'wind':                'L',
+    'fog':                 'C',
+    'cloudy':              'A',
+    'partly-cloudy-day':   'F',
+    'partly-cloudy-night': 'E',
+};
+
+const icon = css`
     font-family: "Weather Icons";
+    color: black;
+    font-size: 10em;
 `;
 
 class App extends Component {
@@ -70,7 +90,10 @@ class App extends Component {
     render() {
         console.log(this.state);
         return (
-            <div className={style}>{this.state.currently.summary || 'Loading...'}</div>
+            <div>
+                <div className={icon}>{weatherIcons[this.state.currently.icon]}</div>
+                <div className={style}>{this.state.currently.summary || 'Loading...'}</div>
+            </div>
         );
     }
 }
