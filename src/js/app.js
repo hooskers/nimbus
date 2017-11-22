@@ -6,17 +6,7 @@ import {render} from 'react-dom';
 import {css, fontFace} from 'react-emotion';
 
 import apiKey from './apiKey';
-
-fontFace`
-    font-family: 'Weather Icons';
-    src: url(/fonts/WeatherIcons.woff);
-`;
-
-const style = css`
-    color: black;
-    font-family: "Arial";
-    font-size: 5em;
-`;
+import AnimatedBackground from './AnimatedBackground';
 
 const weatherIcons = {
     'clear-day':           'J',
@@ -31,10 +21,35 @@ const weatherIcons = {
     'partly-cloudy-night': 'E',
 };
 
+const app = css`
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+`;
+
+const style = css`
+    color: black;
+    font-family: "Arial";
+    font-size: 5em;
+    z-index: 0;
+    position: relative;
+    display: inline-block;
+    background-color: white;
+`;
+
+fontFace`
+    font-family: 'Weather Icons';
+    src: url(/fonts/WeatherIcons.woff);
+`;
+
 const icon = css`
     font-family: "Weather Icons";
     color: black;
     font-size: 10em;
+    position: relative;
+    z-index: 0;
+    background-color: white;
+    display: inline-block;
 `;
 
 class App extends Component {
@@ -70,6 +85,15 @@ class App extends Component {
             maximumAge: 0,
         }
 
+        this.setState({
+            currently: {
+                icon: 'partly-cloudy-night',
+                summary: 'BLAH BLAH BLAH BLAH',
+            },
+        });
+
+        return;
+
         //Get geolocation from browser
         navigator.geolocation.getCurrentPosition(pos => {
             this.setState({location: {lat: pos.coords.latitude, lon: pos.coords.longitude}});
@@ -90,12 +114,14 @@ class App extends Component {
     render() {
         console.log(this.state);
         return (
-            <div>
-                <div className={icon}>{weatherIcons[this.state.currently.icon]}</div>
-                <div className={style}>{this.state.currently.summary || 'Loading...'}</div>
+            <div className={app}>
+                <AnimatedBackground>
+                    <div className={icon}>{weatherIcons[this.state.currently.icon]}</div>
+                    <div className={style}>{this.state.currently.summary || 'Loading...'}</div>
+                </AnimatedBackground>
             </div>
         );
     }
 }
 
-render(<App />, document.getElementById('app'));
+render(<App style={{'height': '100vh', 'width': '100vw', 'background-color': 'white'}}/>, document.getElementById('app'));
