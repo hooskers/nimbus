@@ -6,7 +6,7 @@ import {render} from 'react-dom';
 import {css, fontFace} from 'react-emotion';
 
 import apiKey from './apiKey';
-import AnimatedBackground from './AnimatedBackground';
+import WeatherBackground from './WeatherBackground';
 
 const weatherIcons = {
     'clear-day':           'J',
@@ -60,6 +60,7 @@ class App extends Component {
             daily: {},
             hourly: {},
             minutely: {},
+            loading: true,
         }
     }
 
@@ -74,6 +75,7 @@ class App extends Component {
                 daily: result.daily,
                 hourly: result.hourly,
                 minutely: result.minutely,
+                loading: false,
             });
         });
     }
@@ -85,14 +87,16 @@ class App extends Component {
             maximumAge: 0,
         }
 
+        //Below block for development only.
         this.setState({
             currently: {
-                icon: 'partly-cloudy-night',
+                icon: 'rain',
                 summary: 'BLAH BLAH BLAH BLAH',
             },
+            loading: false,
         });
-
         return;
+        //Above block for development only.
 
         //Get geolocation from browser
         navigator.geolocation.getCurrentPosition(pos => {
@@ -115,10 +119,12 @@ class App extends Component {
         console.log(this.state);
         return (
             <div className={app}>
-                <AnimatedBackground>
-                    <div className={icon}>{weatherIcons[this.state.currently.icon]}</div>
-                    <div className={style}>{this.state.currently.summary || 'Loading...'}</div>
-                </AnimatedBackground>
+                {this.state.loading ? "Loading..."
+                    :
+                     <WeatherBackground animation={this.state.currently.icon}>
+                        <div className={icon}>{weatherIcons[this.state.currently.icon]}</div>
+                        <div id="summary" className={style}>{this.state.currently.summary}</div>
+                    </WeatherBackground>}
             </div>
         );
     }
