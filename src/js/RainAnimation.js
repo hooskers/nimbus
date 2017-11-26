@@ -16,20 +16,21 @@ let dropAnimation = keyframes`
 const staticDropStyle = css`
     position: fixed;
     height: 10vh;
-    top: -10vh;
     background: linear-gradient(0deg, white, black 60%, rgba(0, 0, 0, 0));
     width: 1px;
     mix-blend-mode: exclusion;
     z-index: 1000;
-    animation: ${dropAnimation} 1.5s linear infinite;
+    animation: ${dropAnimation} 1s linear infinite;
+    will-change: transform;
+    transform: translateZ(0);
 `;
 
 const RainAnimation = () => {
     let drops = [];
     
     //Generate random(ish)ized rain drops
-    for (let i = 0; i < 33; i++) {
-        let animationDelay = Math.random() * (1.5 - 0) + 0;
+    for (let i = 0; i < 30; i++) {
+        let animationDelay = Math.random() * (1 - 0) + 0;
         let left = Math.round(Math.random() * (100 - 1) + 1);
     
         let style = css`

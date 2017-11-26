@@ -13,8 +13,6 @@ const backgroundStyle = css`
     width: 100vw;
     height: 100vh;
     background: white;
-    will-change: transform;
-    transform: translateZ(0);
 `;
 
 //
