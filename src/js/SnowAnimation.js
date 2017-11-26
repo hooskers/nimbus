@@ -18,7 +18,7 @@ let flakeAnimationRight = keyframes`
 }
 
 100% {
-    transform: translate(40vh, 100vh);
+    transform: translate(10vh, 100vh);
 }
 `;
 
