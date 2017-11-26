@@ -13,13 +13,13 @@ let flakeAnimationLeft = keyframes`
 `;
 
 let flakeAnimationRight = keyframes`
-0% {
-    transform: translate(0vh, 0vh);
-}
+    0% {
+        transform: translate(0vh, 0vh);
+    }
 
-100% {
-    transform: translate(10vh, 100vh);
-}
+    100% {
+        transform: translate(10vh, 100vh);
+    }
 `;
 
 let flakeAnimationDown = keyframes`
@@ -35,7 +35,7 @@ let flakeAnimationDown = keyframes`
 //Styles for snow flakes that don't change
 const staticFlakeStyle = css`
     position: fixed;
-    top: -6px;
+    top: -2vh;
     background: white;
     mix-blend-mode: exclusion;
     z-index: 1000;
@@ -46,57 +46,57 @@ const staticFlakeStyle = css`
 `;
 
 const SnowAnimation = () => {
-let flakes = [];
+    let flakes = [];
 
-//Generate random(ish)ized snow flakes
-for (let i = 0; i < 10; i++) {
-    let animationDelay = Math.random() * (5 - 0) + 0;
-    let left = Math.round(Math.random() * (100 - 1) + 1);
+    //Generate random(ish)ized snow flakes
+    for (let i = 0; i < 10; i++) {
+        let animationDelay = Math.random() * (5 - 0) + 0;
+        let left = Math.round(Math.random() * (100 - 1) + 1);
 
-    let style = css`
-        left: ${left}vw;
-        width: 5px;
-        height: 5px;
-        filter: blur(2px);
-        animation: ${flakeAnimationLeft} 5s linear infinite;
-        animation-delay: ${animationDelay}s;
-    `;
+        let style = css`
+            left: ${left}vw;
+            width: 0.75vh;
+            height: 0.75vh;
+            filter: blur(2px);
+            animation: ${flakeAnimationLeft} 5s linear infinite;
+            animation-delay: ${animationDelay}s;
+        `;
 
-    flakes.push(<div className={`flake ${staticFlakeStyle} ${style}`} key={'flakeLeft'+i}></div>)
-}
+        flakes.push(<div className={`flake ${staticFlakeStyle} ${style}`} key={'flakeLeft'+i}></div>)
+    }
 
-for (let i = 0; i < 10; i++) {
-    let animationDelay = Math.random() * (5 - 0) + 0;
-    let left = Math.round(Math.random() * (100 - 1) + 1);
+    for (let i = 0; i < 10; i++) {
+        let animationDelay = Math.random() * (5 - 0) + 0;
+        let left = Math.round(Math.random() * (100 - 1) + 1);
 
-    let style = css`
-        left: ${left}vw;
-        width: 3px;
-        height: 3px;
-        animation: ${flakeAnimationRight} 5s linear infinite;
-        animation-delay: ${animationDelay}s;
-    `;
+        let style = css`
+            left: ${left}vw;
+            width: 0.25vh;
+            height: 0.25vh;
+            animation: ${flakeAnimationRight} 5s linear infinite;
+            animation-delay: ${animationDelay}s;
+        `;
 
-    flakes.push(<div className={`flake ${staticFlakeStyle} ${style}`} key={'flakeRight'+i}></div>)
-}
+        flakes.push(<div className={`flake ${staticFlakeStyle} ${style}`} key={'flakeRight'+i}></div>)
+    }
 
-for (let i = 0; i < 10; i++) {
-    let animationDelay = Math.random() * (5 - 0) + 0;
-    let left = Math.round(Math.random() * (100 - 1) + 1);
+    for (let i = 0; i < 10; i++) {
+        let animationDelay = Math.random() * (5 - 0) + 0;
+        let left = Math.round(Math.random() * (100 - 1) + 1);
 
-    let style = css`
-        left: ${left}vw;
-        width: 4px;
-        height: 4px;
-        filter: blur(1px);
-        animation: ${flakeAnimationDown} 5s linear infinite;
-        animation-delay: ${animationDelay}s;
-    `;
+        let style = css`
+            left: ${left}vw;
+            width: 0.5vh;
+            height: 0.5vh;
+            filter: blur(1px);
+            animation: ${flakeAnimationDown} 5s linear infinite;
+            animation-delay: ${animationDelay}s;
+        `;
 
-    flakes.push(<div className={`flake ${staticFlakeStyle} ${style}`} key={'flakeDown'+i}></div>)
-}
+        flakes.push(<div className={`flake ${staticFlakeStyle} ${style}`} key={'flakeDown'+i}></div>)
+    }
 
-return flakes;
+    return flakes;
 
 }
 
