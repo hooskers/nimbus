@@ -16,6 +16,7 @@ let dropAnimation = keyframes`
 const staticDropStyle = css`
     position: fixed;
     height: 10vh;
+    top: -10vh;
     background: linear-gradient(0deg, white, black 60%, rgba(0, 0, 0, 0));
     width: 1px;
     mix-blend-mode: exclusion;

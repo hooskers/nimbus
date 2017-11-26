@@ -4,9 +4,11 @@ import {css, keyframes} from 'react-emotion';
 import PropTypes from 'prop-types';
 
 import RainAnimation from './RainAnimation';
+import SnowAnimation from './SnowAnimation';
 
 const animationComponents = {
     rain: <RainAnimation />,
+    snow: <SnowAnimation />,
 };
 
 const backgroundStyle = css`

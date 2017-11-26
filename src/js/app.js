@@ -90,7 +90,7 @@ class App extends Component {
         //Below block for development only.
         this.setState({
             currently: {
-                icon: 'rain',
+                icon: 'snow',
                 summary: 'BLAH BLAH BLAH BLAH',
             },
             loading: false,
