@@ -5,10 +5,12 @@ import PropTypes from 'prop-types';
 
 import RainAnimation from './RainAnimation';
 import SnowAnimation from './SnowAnimation';
+import FogAnimation from './FogAnimation';
 
 const animationComponents = {
     rain: <RainAnimation />,
     snow: <SnowAnimation />,
+    fog: <FogAnimation />,
 };
 
 const backgroundStyle = css`
