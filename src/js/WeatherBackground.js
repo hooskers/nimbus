@@ -16,7 +16,7 @@ const animationComponents = {
 const backgroundStyle = css`
     width: 100vw;
     height: 100vh;
-    background: white;
+    background: linear-gradient(0deg, gray, darkgray);
 `;
 
 //

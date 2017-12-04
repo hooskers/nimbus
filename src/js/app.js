@@ -7,6 +7,7 @@ import {css, fontFace} from 'react-emotion';
 
 import apiKey from './apiKey';
 import WeatherBackground from './WeatherBackground';
+import AnimationSelect from './AnimationSelect';
 
 const weatherIcons = {
     'clear-day':           'J',
@@ -21,20 +22,14 @@ const weatherIcons = {
     'partly-cloudy-night': 'E',
 };
 
-const app = css`
-    width: 100vw;
-    height: 100vh;
-    background-color: white;
-`;
-
-const style = css`
+const summStyle = css`
     color: black;
     font-family: "Arial";
     font-size: 5em;
     z-index: 0;
     position: relative;
     display: inline-block;
-    background-color: white;
+    background-color: none;
 `;
 
 fontFace`
@@ -48,7 +43,7 @@ const icon = css`
     font-size: 10em;
     position: relative;
     z-index: 0;
-    background-color: white;
+    background-color: none;
     display: inline-block;
 `;
 
@@ -62,6 +57,8 @@ class App extends Component {
             minutely: {},
             loading: true,
         }
+
+        this.animationChange = this.animationChange.bind(this);
     }
 
     fetchWeather(lat, long) {
@@ -80,23 +77,24 @@ class App extends Component {
         });
     }
 
+    animationChange(event) {
+        const hasAnimation = ['rain', 'snow', 'fog']
+        this.setState({
+            currently: {
+                icon: event.target.value,
+                summary: hasAnimation.includes(event.target.value) ? 
+                    'TEST ANIMATION' : 
+                    'ANIMATION FOR THIS WEATHER CONDITION IS STILL UNDER DEVELOPMENT',
+            },
+        });
+    }
+
     componentDidMount() {
         let options = {
             enableHighAccuracy: false,
             timeout: 10000,
             maximumAge: 0,
         }
-
-        //Below block for development only.
-        this.setState({
-            currently: {
-                icon: 'fog',
-                summary: 'BLAH BLAH BLAH BLAH',
-            },
-            loading: false,
-        });
-        return;
-        //Above block for development only.
 
         //Get geolocation from browser
         navigator.geolocation.getCurrentPosition(pos => {
@@ -118,12 +116,19 @@ class App extends Component {
     render() {
         console.log(this.state);
         return (
-            <div className={app}>
+            <div>
                 {this.state.loading ? "Loading..."
                     :
                      <WeatherBackground animation={this.state.currently.icon}>
-                        <div className={icon}>{weatherIcons[this.state.currently.icon]}</div>
-                        <div id="summary" className={style}>{this.state.currently.summary}</div>
+                        Work in Progress
+                        <div>
+                            <div className={icon}>{weatherIcons[this.state.currently.icon]}</div>
+                            <div id="summary" className={summStyle}>{this.state.currently.summary}</div>
+                        </div>
+                        <AnimationSelect 
+                            options={weatherIcons} 
+                            handleChange={this.animationChange} 
+                        />
                     </WeatherBackground>}
             </div>
         );

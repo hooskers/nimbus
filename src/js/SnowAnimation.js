@@ -37,10 +37,9 @@ const staticFlakeStyle = css`
     position: fixed;
     top: -2vh;
     background: white;
-    mix-blend-mode: exclusion;
+    mix-blend-mode: difference;
     z-index: 1000;
     will-change: transform;
-    transform: translateZ(0);
     border: solid 1px white;
     border-radius: 50%;
 `;
