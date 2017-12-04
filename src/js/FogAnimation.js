@@ -54,7 +54,7 @@ const FogAnimation = () => {
             animation: ${driftAnimation} ${duration}s linear infinite;
         `;
 
-        fogs.push(<div className={`fog ${staticFogStyle} ${style}`} key={'fog'+i}></div>);
+        fogs.push(<div className={`fog ${staticFogStyle} ${style}`} key={'foga'+i}></div>);
     }
 
     for(let i = 0; i < 4; i++) {
@@ -74,7 +74,7 @@ const FogAnimation = () => {
             animation: ${driftAnimation} ${duration}s linear infinite;
         `;
 
-        fogs.push(<div className={`fog ${staticFogStyle} ${style}`} key={'fog'+i}></div>);
+        fogs.push(<div className={`fog ${staticFogStyle} ${style}`} key={'fogb'+i}></div>);
     }
 
     for(let i = 0; i < 4; i++) {
@@ -94,7 +94,7 @@ const FogAnimation = () => {
             animation: ${driftAnimation} ${duration}s linear infinite;
         `;
 
-        fogs.push(<div className={`fog ${staticFogStyle} ${style}`} key={'fog'+i}></div>);
+        fogs.push(<div className={`fog ${staticFogStyle} ${style}`} key={'fogc'+i}></div>);
     }
 
     return fogs;

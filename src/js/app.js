@@ -34,7 +34,7 @@ const summStyle = css`
 
 fontFace`
     font-family: 'Weather Icons';
-    src: url(/fonts/WeatherIcons.woff);
+    src: url(./fonts/WeatherIcons.woff);
 `;
 
 const icon = css`
@@ -64,7 +64,7 @@ class App extends Component {
     fetchWeather(lat, long) {
         const proxy = 'https://cors-anywhere.herokuapp.com/';
 
-        fetch(`${proxy}https://api.darksky.net/forecast/18a076ac44c0bd845fd54792b8233541/${lat},${long}`)
+        fetch(`${proxy}https://api.darksky.net/forecast/${apiKey}/${lat},${long}`)
         .then(response => response.json())
         .then(result => {
             this.setState({
