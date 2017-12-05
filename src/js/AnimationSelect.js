@@ -9,8 +9,10 @@ const animationSelectStyle = css`
 `;
 
 const AnimationSelect = ({options, handleChange}) =>
-    <select className={animationSelectStyle} onChange={handleChange}>
-        <option disabled selected value="">Select a weather condition</option>
+    <select className={animationSelectStyle} 
+        onChange={handleChange}
+        value="">
+        <option disabled value="">Select a weather condition</option>
         {Object.keys(options).map((option) => 
             <option value={option} key={option}>{option}</option>)}
     </select>
