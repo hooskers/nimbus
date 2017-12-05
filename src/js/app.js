@@ -78,7 +78,7 @@ class App extends Component {
     }
 
     animationChange(event) {
-        const hasAnimation = ['rain', 'snow', 'fog', 'sleet'];
+        const hasAnimation = ['rain', 'snow', 'fog', 'sleet', 'cloudy'];
         this.setState({
             currently: {
                 icon: event.target.value,

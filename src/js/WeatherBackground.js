@@ -7,12 +7,14 @@ import RainAnimation from './RainAnimation';
 import SnowAnimation from './SnowAnimation';
 import FogAnimation from './FogAnimation';
 import SleetAnimation from './SleetAnimation';
+import CloudAnimation from './CloudAnimation';
 
 const animationComponents = {
     rain: <RainAnimation />,
     snow: <SnowAnimation />,
     fog: <FogAnimation />,
     sleet: <SleetAnimation />,
+    cloudy: <CloudAnimation />,
 };
 
 const backgroundStyle = css`

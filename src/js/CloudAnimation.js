@@ -2,21 +2,22 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {css, keyframes} from 'react-emotion';
 
-const staticFogStyle = css`
+const staticCloudStyle = css`
     position: fixed;
     z-index: 1000;
     background: rgba(255, 255, 255, 0.5);
-    clip-path: inset(10% 10% round 70px);
-    width: 70vw;
-    height: 10vh;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 70px;
+    width: 20vw;
+    height: 20vh;
 `;
 
-const FogAnimation = () => {
-    let fogs = [];
+const CloudAnimation = () => {
+    let clouds = [];
 
-    for(let i = 0; i < 4; i++) {
-        let left = Math.random() * (-70 - -140) + -140;
-        let top = Math.random() * (100 - 0) + 0;
+    for(let i = 0; i < 2; i++) {
+        let left = Math.random() * (-20 - -40) + -40;
+        let top = Math.random() * (33 - 0) + 0;
         let duration = Math.random() * (50 - 35) + 35;
 
         const driftAnimation = keyframes`
@@ -31,12 +32,12 @@ const FogAnimation = () => {
             animation: ${driftAnimation} ${duration}s linear infinite;
         `;
 
-        fogs.push(<div className={`fog ${staticFogStyle} ${style}`} key={'foga'+i}></div>);
+        clouds.push(<div className={`cloud ${staticCloudStyle} ${style}`} key={'clouda'+i}></div>);
     }
 
-    for(let i = 0; i < 4; i++) {
-        let left = Math.random() * (-140 - -210) + -210;
-        let top = Math.random() * (100 - 0) + 0;
+    for(let i = 0; i < 2; i++) {
+        let left = Math.random() * (-40 - -60) + -60;
+        let top = Math.random() * (33 - 0) + 0;
         let duration = Math.random() * (64 - 49) + 49;
 
         const driftAnimation = keyframes`
@@ -51,12 +52,12 @@ const FogAnimation = () => {
             animation: ${driftAnimation} ${duration}s linear infinite;
         `;
 
-        fogs.push(<div className={`fog ${staticFogStyle} ${style}`} key={'fogb'+i}></div>);
+        clouds.push(<div className={`cloud ${staticCloudStyle} ${style}`} key={'cloudb'+i}></div>);
     }
 
-    for(let i = 0; i < 4; i++) {
-        let left = Math.random() * (-210 - -280) + -280;
-        let top = Math.random() * (100 - 0) + 0;
+    for(let i = 0; i < 2; i++) {
+        let left = Math.random() * (-60 - -80) + -80;
+        let top = Math.random() * (33 - 0) + 0;
         let duration = Math.random() * (57 - 42) + 42;
 
         const driftAnimation = keyframes`
@@ -71,10 +72,10 @@ const FogAnimation = () => {
             animation: ${driftAnimation} ${duration}s linear infinite;
         `;
 
-        fogs.push(<div className={`fog ${staticFogStyle} ${style}`} key={'fogc'+i}></div>);
+        clouds.push(<div className={`cloud ${staticCloudStyle} ${style}`} key={'cloudc'+i}></div>);
     }
 
-    return fogs;
+    return clouds;
 }
 
-export default FogAnimation;
+export default CloudAnimation;
